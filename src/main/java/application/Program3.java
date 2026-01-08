@@ -1,14 +1,14 @@
 package application;
 
 import entities.Product;
-import util.ProductPredicate;
+import util.PriceUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
-public class Program2 {
+public class Program3 {
 
     public static void main(String[] args) {
 
@@ -21,12 +21,14 @@ public class Program2 {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-        Predicate<Product> pred = p -> p.getPrice() >= 100;
-        list.removeIf(pred);
 
-        for (Product p : list) {
-            System.out.println(p);
-        }
+        Consumer<Product> cons = p -> {
+            p.setPrice(p.getPrice() * 1.1);
+        };
 
+//        list.forEach(Product::nonStaticPriceUpdate);
+        list.forEach(cons);
+
+        list.forEach(System.out::println);
     }
 }
