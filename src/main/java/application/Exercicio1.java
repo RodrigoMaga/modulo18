@@ -1,12 +1,13 @@
 package application;
 
 import entities.Product;
+import services.ProductService;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Program4 {
+public class Exercicio1 {
 
     public static void main(String[] args) {
 
@@ -19,15 +20,11 @@ public class Program4 {
         list.add(new Product("Tablet", 350.50));
         list.add(new Product("HD Case", 80.90));
 
-//        List<String> names = list.stream().map(new UpperCaseName()).toList();
-//        List<String> names = list.stream().map(Product::nonStaticUpperCaseName).toList();
-        List<String> names = list.stream().map(p -> p.getName().toUpperCase()).toList();
+        ProductService ps = new ProductService();
 
+//        double total = ps.filteredSum(list, p -> p.getName().charAt(0) == 'T');
 
-
-
-        names.forEach(System.out::println);
-
+//        System.out.println("Sum = " + String.format("%.2f", total));
 
     }
 }
