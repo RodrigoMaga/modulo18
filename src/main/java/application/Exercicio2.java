@@ -52,7 +52,5 @@ public class Exercicio2 {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
-
-
     }
 }
